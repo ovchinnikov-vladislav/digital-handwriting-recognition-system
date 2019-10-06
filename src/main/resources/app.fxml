@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.Insets?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vo.analyzelit.Controller" stylesheets="style.css" style="-fx-background-color: white">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="100"/>
+        <RowConstraints vgrow="SOMETIMES"/>
+        <RowConstraints prefHeight="100"/>
+    </rowConstraints>
+    <TextField fx:id="textLiteral" text="Hello, world" focusTraversable="false" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="text_literal">
+        <GridPane.margin>
+            <Insets top="5" left="10" right="15" bottom="5"/>
+        </GridPane.margin>
+    </TextField>
+    <GridPane fx:id="grid_canvas" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="grid_canvas">
+        <GridPane.margin>
+            <Insets left="10" right="15"/>
+        </GridPane.margin>
+        <StackPane>
+            <Canvas fx:id="canvasCell"/>
+            <Canvas fx:id="canvas" onMousePressed="#onMousePressed" onMouseDragged="#onMouseDragged" onMouseReleased="#onMouseReleased"/>
+        </StackPane>
+    </GridPane>
+    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="5">
+        <GridPane.margin>
+            <Insets top="25" left="10" right="15"/>
+        </GridPane.margin>
+        <Button text="Писать" onMouseClicked="#writingOnMouseClicked"/>
+        <Button text="Стереть" onMouseClicked="#removalOnMouseClicked"/>
+        <Button text="Очистить" onMouseClicked="#clearOnMouseClicked"/>
+        <Button text="Обучение нейросети" onMouseClicked="#learningOnMouseClicked"/>
+        <Button text="Распознать" onMouseClicked="#recognizedOnMouseClicked"/>
+    </HBox>
+</GridPane>
